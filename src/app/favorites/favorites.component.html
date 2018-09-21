@@ -9,7 +9,7 @@
                 <td>{{repo.name}}</td>
                 <td>{{repo.languages.nodes[0]?.name}}</td>
                 <td>{{repo.releases.nodes[0]?.name ? repo.releases.nodes[0].name : '-'  }}</td>
-                <td><span>Remove</span></td>
+                <td><span (click)="removeFromFav(repo)">Remove</span></td>
             </tr>
         </tbody>
     </table>

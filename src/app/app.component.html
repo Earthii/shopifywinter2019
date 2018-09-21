@@ -8,7 +8,7 @@
       <app-search-component [repositories]="repositories" (addToFavEvent)="addToFav($event)" (searchResultsEvent)="searchResults($event)" (clearedEvent)="clearRepositories()"></app-search-component>
     </div>
     <div class="right">
-      <app-favorites [favorites]="favorites"></app-favorites>
+      <app-favorites [favorites]="favorites" (removeEvent)="removeFromFav($event)"></app-favorites>
     </div>
   </div>
 </div>

@@ -26,4 +26,8 @@ export class AppComponent {
   clearRepositories() {
     this.repositories = [];
   }
+
+  removeFromFav(repoId) {
+    this.favorites = this.favorites.filter(repo => repo.id !== repoId);
+  }
 }

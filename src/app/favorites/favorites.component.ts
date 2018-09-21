@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-favorites',
@@ -8,4 +8,11 @@ import { Component, Input } from '@angular/core';
 export class FavoritesComponent {
   @Input()
   favorites: any[];
+
+  @Output()
+  removeEvent: EventEmitter<any> = new EventEmitter();
+
+  removeFromFav(repo) {
+    this.removeEvent.emit(repo.id);
+  }
 }
