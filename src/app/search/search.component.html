@@ -1,5 +1,5 @@
 
 <div class="search-component">
-    <app-search-box (cleared)="cleared()"></app-search-box>
-    <app-search-results [repositories]="repositories"></app-search-results>
+    <app-search-box (clearedEvent)="cleared()" (searchEvent)="search($event)"></app-search-box>
+    <app-search-results [repositories]="repositories" (addToFavEvent)="addToFav($event)"></app-search-results>
 </div>

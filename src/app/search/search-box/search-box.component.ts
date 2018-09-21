@@ -10,18 +10,22 @@ export class SearchBoxComponent {
   inputField;
 
   @Output()
-  cleared: EventEmitter<any> = new EventEmitter();
+  clearedEvent: EventEmitter<any> = new EventEmitter();
+
+  @Output()
+  searchEvent: EventEmitter<String> = new EventEmitter<String>();
 
   keyPressed(event) {
     const searchText: string = this.inputField.nativeElement.value;
+
     if (searchText !== '' && event.code === 'Enter') {
       this.search(searchText);
     } else if (searchText === '') {
-      this.cleared.emit();
+      this.clearedEvent.emit();
     }
   }
 
   search(text) {
-    console.log('Do Search: ', text);
+    this.searchEvent.emit(text);
   }
 }

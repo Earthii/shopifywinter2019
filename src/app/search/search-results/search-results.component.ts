@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-search-results',
@@ -8,4 +8,12 @@ import { Component, Input } from '@angular/core';
 export class SearchResultsComponent {
   @Input()
   repositories: any[];
+
+  @Output()
+  addToFavEvent: EventEmitter<any> = new EventEmitter();
+
+  addToFav(repo) {
+    repo.alreadyFav = true;
+    this.addToFavEvent.emit(repo);
+  }
 }

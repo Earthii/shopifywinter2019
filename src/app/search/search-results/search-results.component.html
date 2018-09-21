@@ -7,9 +7,9 @@
     <tbody>
         <tr *ngFor="let repo of repositories | slice:0:10;">
             <td>{{repo.name}}</td>
-            <td>{{repo.language}}</td>
-            <td>{{repo.latestTag}}</td>
-            <td><span>Add</span></td>
+            <td>{{repo.languages.nodes[0]?.name}}</td>
+            <td>{{repo.releases.nodes[0]?.name ? repo.releases.nodes[0].name : '-'}}</td>
+            <td><span *ngIf="!repo.alreadyFav" (click)="addToFav(repo)">Add</span></td>
         </tr>
     </tbody>
 </table>

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-favorites',
@@ -6,7 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['favorites.component.scss']
 })
 export class FavoritesComponent {
-  repositories: any[] = [
-    { name: 'fav1', language: 'Ruby', latestTag: ' v1.0' }
-  ];
+  @Input()
+  favorites: any[];
 }

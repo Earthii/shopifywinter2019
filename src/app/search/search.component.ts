@@ -1,5 +1,5 @@
 import { GithubService } from './../services/github.service';
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter, Input } from '@angular/core';
 
 @Component({
   selector: 'app-search-component',
@@ -7,17 +7,29 @@ import { Component } from '@angular/core';
   styleUrls: ['search.component.scss']
 })
 export class SearchComponent {
-  repositories: any[] = [
-    { name: 'test1', language: 'Ruby', latestTag: ' v1.0' },
-    { name: 'test2', language: 'Ruby', latestTag: ' v2.0' },
-    { name: 'test3', language: 'Ruby', latestTag: ' v3.0' },
-    { name: 'test4', language: 'Ruby', latestTag: ' v4.0' },
-    { name: 'test5', language: 'Ruby', latestTag: ' v5.0' }
-  ];
+  @Input()
+  repositories: any[];
+
+  @Output()
+  addToFavEvent: EventEmitter<any> = new EventEmitter();
+  @Output()
+  searchResultsEvent: EventEmitter<any> = new EventEmitter();
+  @Output()
+  clearedEvent: EventEmitter<any> = new EventEmitter();
 
   constructor(private github: GithubService) {}
 
   cleared() {
-    this.repositories = [];
+    this.clearedEvent.emit();
+  }
+
+  search(text) {
+    this.github.searchPublicRepositories(text).subscribe(data => {
+      this.searchResultsEvent.emit(data.data.search.nodes);
+    });
+  }
+
+  addToFav(repo) {
+    this.addToFavEvent.emit(repo);
   }
 }

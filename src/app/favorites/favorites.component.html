@@ -5,10 +5,10 @@
             <td>Latest tag</td>
         </thead>
         <tbody>
-            <tr *ngFor="let repo of repositories">
+            <tr *ngFor="let repo of favorites">
                 <td>{{repo.name}}</td>
-                <td>{{repo.language}}</td>
-                <td>{{repo.latestTag}}</td>
+                <td>{{repo.languages.nodes[0]?.name}}</td>
+                <td>{{repo.releases.nodes[0]?.name ? repo.releases.nodes[0].name : '-'  }}</td>
                 <td><span>Remove</span></td>
             </tr>
         </tbody>

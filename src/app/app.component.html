@@ -5,10 +5,10 @@
   </header>
   <div class="content">
     <div class="left">
-      <app-search-component></app-search-component>
+      <app-search-component [repositories]="repositories" (addToFavEvent)="addToFav($event)" (searchResultsEvent)="searchResults($event)" (clearedEvent)="clearRepositories()"></app-search-component>
     </div>
     <div class="right">
-      <app-favorites></app-favorites>
+      <app-favorites [favorites]="favorites"></app-favorites>
     </div>
   </div>
 </div>
