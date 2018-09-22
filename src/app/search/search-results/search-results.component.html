@@ -6,7 +6,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let repo of repositories | slice:0:10;">
-            <td>{{repo.name}}</td>
+            <td><a [href]="repo.url">{{repo.owner.login}}/{{repo.name}}</a></td>
             <td>{{repo.languages.nodes[0]?.name}}</td>
             <td>{{repo.releases.nodes[0]?.name ? repo.releases.nodes[0].name : '-'}}</td>
             <td><span *ngIf="!repo.alreadyFav" (click)="addToFav(repo)">Add</span></td>

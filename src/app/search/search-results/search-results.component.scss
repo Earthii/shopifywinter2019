@@ -6,6 +6,13 @@ table {
     font-weight: bold;
   }
   tbody {
+    a {
+      text-decoration: none;
+      color: black;
+    }
+    a:hover {
+      color: $main-purple;
+    }
     span {
       color: $main-purple;
       text-decoration: underline;

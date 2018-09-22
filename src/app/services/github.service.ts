@@ -16,6 +16,10 @@ export class GithubService {
           ... on Repository{
             name,
             id,
+            url,
+            owner {
+              login
+            },
             languages(first: 1) {
               nodes {
                 name
