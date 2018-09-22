@@ -3,10 +3,11 @@
             <td>Name</td>
             <td>Language</td>
             <td>Latest tag</td>
+            <td></td>
         </thead>
         <tbody>
             <tr *ngFor="let repo of favorites">
-                <td>{{repo.name}}</td>
+                <td><a [href]="repo.url">{{repo.owner.login}}/{{repo.name}}</a></td>
                 <td>{{repo.languages.nodes[0]?.name}}</td>
                 <td>{{repo.releases.nodes[0]?.name ? repo.releases.nodes[0].name : '-'  }}</td>
                 <td><span (click)="removeFromFav(repo)">Remove</span></td>

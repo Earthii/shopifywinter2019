@@ -2,6 +2,7 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+// Github API v4 Graph QL Wrapper
 @Injectable()
 export class GithubService {
   endpoint = 'https://api.github.com/graphql';
@@ -20,7 +21,7 @@ export class GithubService {
             owner {
               login
             },
-            languages(first: 1) {
+            languages(first:1, orderBy:{field:SIZE, direction:DESC}) {
               nodes {
                 name
               }
