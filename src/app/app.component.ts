@@ -28,6 +28,13 @@ export class AppComponent {
   }
 
   removeFromFav(repoId) {
-    this.favorites = this.favorites.filter(repo => repo.id !== repoId);
+    this.favorites = this.favorites.filter(favRepo => {
+      if (favRepo.id === repoId) {
+        const resetRepo = this.repositories.find(repo => repo.id === repoId);
+        resetRepo.alreadyFav = false;
+      }
+
+      return favRepo.id !== repoId;
+    });
   }
 }
