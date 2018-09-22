@@ -1,0 +1,23 @@
+<table>
+        <thead>
+            <td>Name</td>
+            <td>Language</td>
+            <td>Latest tag</td>
+            <td></td>
+        </thead>
+        <tbody>
+            <tr *ngFor="let repo of repositories">
+                <td><a [href]="repo.url">{{repo.owner.login}}/{{repo.name}}</a></td>
+                <td>{{repo.languages.nodes[0]?.name}}</td>
+                <td>{{repo.releases.nodes[0]?.name ? repo.releases.nodes[0].name : '-'  }}</td>
+                <td>
+                    <ng-container [ngSwitch]="mode">
+                        <span (click)="removeFromFav(repo)" *ngSwitchCase="'REMOVE'">Remove</span>
+                        <span (click)="addToFav(repo)"  *ngSwitchCase="'ADD'">
+                            <span *ngIf="!repo.alreadyFav">Add</span>
+                        </span>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </table>

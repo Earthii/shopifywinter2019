@@ -1,15 +1,15 @@
-import { GithubService } from './../services/github.service';
-import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { SharedModule } from './../shared/shared.module';
 
-import { SearchResultsComponent } from './search-results/search-results.component';
 import { SearchBoxComponent } from './search-box/search-box.component';
 import { SearchComponent } from './search.component';
-import { NgModule } from '@angular/core';
+
+import { GithubService } from './../services/github.service';
 
 @NgModule({
-  imports: [CommonModule],
-  declarations: [SearchComponent, SearchBoxComponent, SearchResultsComponent],
-  exports: [SearchComponent, SearchBoxComponent, SearchResultsComponent],
+  imports: [SharedModule],
+  declarations: [SearchComponent, SearchBoxComponent],
+  exports: [SearchComponent, SearchBoxComponent],
   providers: [GithubService]
 })
 export class SearchModule {}
