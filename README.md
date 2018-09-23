@@ -2,6 +2,8 @@
 
 This project was built as a solution to shopify's web developer internship challenge for winter 2019
 
+The web app is built with Angular and using the Github API v4 Graph QL
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
