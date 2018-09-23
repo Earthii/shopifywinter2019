@@ -7,6 +7,7 @@ import { SharedModule } from './shared/shared.module';
 import { SearchModule } from './search/search.module';
 
 import { AppComponent } from './app.component';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthInterceptor } from './services/Auth.interceptor';
 @NgModule({
   imports: [
@@ -18,6 +19,7 @@ import { AuthInterceptor } from './services/Auth.interceptor';
   ],
   declarations: [AppComponent],
   providers: [
+    CookieService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

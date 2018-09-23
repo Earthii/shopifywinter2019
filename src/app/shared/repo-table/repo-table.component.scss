@@ -27,4 +27,10 @@ table {
       text-decoration: underline;
     }
   }
+  tbody:before {
+    content: '-';
+    display: block;
+    line-height: 0.7em;
+    color: transparent;
+  }
 }
